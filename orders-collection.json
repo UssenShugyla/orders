@@ -1,0 +1,74 @@
+{
+  "info": {
+    "name": "Orders Service - Shugyla",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Shugyla\",\n  \"email\": \"shugyla@test.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["customers"]
+        }
+      }
+    },
+    {
+      "name": "Get All Customers",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["customers"]
+        }
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8082/orders?customerId=1&amount=700",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["orders"],
+          "query": [
+            { "key": "customerId", "value": "1" },
+            { "key": "amount", "value": "700" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Pay Order",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8082/orders/pay/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["orders", "pay", "1"]
+        }
+      }
+    }
+  ]
+}

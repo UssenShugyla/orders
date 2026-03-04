@@ -11,7 +11,6 @@ public class CustomerController {
 
     private final CustomerService service;
 
-    // Конструктор (вместо @RequiredArgsConstructor)
     public CustomerController(CustomerService service) {
         this.service = service;
     }

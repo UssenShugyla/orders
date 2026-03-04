@@ -17,7 +17,6 @@ public class OrderService {
         this.repository = repository;
     }
 
-    // CREATE
     public Order create(Order order) {
         if (order.getAmount() == null || order.getAmount().doubleValue() <= 0) {
             throw new RuntimeException("Amount must be greater than 0");
@@ -29,18 +28,15 @@ public class OrderService {
         return repository.save(order);
     }
 
-    // GET ALL
     public List<Order> getAll() {
         return repository.findAll();
     }
 
-    // GET BY ID
     public Order getById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
     }
 
-    // UPDATE
     public Order update(Long id, Order updated) {
         Order existing = getById(id);
 
@@ -49,13 +45,11 @@ public class OrderService {
         return repository.save(existing);
     }
 
-    // DELETE
     public void delete(Long id) {
         Order order = getById(id);
         repository.delete(order);
     }
 
-    // PAY
     public Order pay(Long id) {
         Order order = getById(id);
 
@@ -67,7 +61,7 @@ public class OrderService {
         return repository.save(order);
     }
 
-    // CANCEL
+
     public Order cancel(Long id) {
         Order order = getById(id);
 
